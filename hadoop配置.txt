@@ -1,0 +1,36 @@
+1.创建hadoop用户组
+sudo groupadd hadoop
+2.创建hadoop用户
+sudo useradd -g hadoop hadoop
+3.给hadoop用户添加权限，打开/etc/sudoers文件
+vim /etc/sudoers
+给hadoop用户赋予root用户同样的权限。在root   ALL=(ALL:ALL)   ALL下添加hadoop   ALL=(ALL:ALL)  ALL
+4.修改机器名
+vim /etc/hostname
+为了以后集群中能够容易分辨各台服务器，需要给每台机器取个不同的名字
+5.建立ssh无密码登录本机 
+su hadoop
+ssh生成密钥有rsa和dsa两种生成方式，默认情况下采用rsa方式。
+ssh-keygen -t dsa
+在主目录/home/hadoop下的隐藏目录.ssh中生成，分别为id_dsa和id_dsa.pub，后者为公钥
+cd /home/hadoop/.ssh
+根据配置文件/etc/ssh/sshd_config中的AuthorizedKeysFile项的取值：.ssh/authorized_keys，公钥需要导入到该文件中才能实现校验
+cat id_dsa.pub >> authorized_keys
+chmod 644 authorized_keys
+已经能够使用ssh无密码登录本机了
+ssh localhost
+6.将该hadoop文件夹的属主用户设为hadoop
+chown -R hadoop:hadoop /usr/local/hadoop-2.6.3
+
+进入hadoop目录下，格式化hdfs文件系统，初次运行hadoop时一定要有该操作
+hadoop namenode -format
+启动bin/start-all.sh
+jps
+检测hadoop是否启动成功
+[hadoop@Master local]$ jps
+4615 NodeManager
+4372 SecondaryNameNode
+4191 DataNode
+4516 ResourceManager
+4094 NameNode
+4923 Jps

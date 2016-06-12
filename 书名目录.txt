@@ -1,0 +1,6 @@
+Spark机器学习
+http://www.ituring.com.cn/book/1569
+Scala程序设计（第2版）
+http://www.ituring.com.cn/book/1593
+精通Hadoop
+http://www.ituring.com.cn/book/1599

@@ -1,0 +1,30 @@
+Linux下安装Nginx详细图解教程
+http://blog.csdn.net/dyllove98/article/details/8892509
+Linux 安装配置maven3.0 以及搭建nexus私服
+http://www.cnblogs.com/dingyingsi/p/3776560.html
+在Eclipse里运行Nutch
+http://cn.soulmachine.me/blog/20140120/
+nutch2.2.1 mysql eclipse配置
+http://www.huangxy.com/what/what!doHistory.action?history.id=2296&history.v_version=4076
+Flume(NG)架构设计要点及配置实践
+http://shiyanjun.cn/archives/915.html
+Kafka入门经典教程 
+http://blog.csdn.net/hmsiwtv/article/details/46960053
+Spark编程指南 - 简体中文版
+https://www.gitbook.com/book/aiyanbo/spark-programming-guide-zh-cn/details
+CentOS配置ssh无密码登录的注意点
+http://www.cnblogs.com/mophee/archive/2013/04/21/3033859.html
+超详细单机版搭建hadoop环境图文解析
+http://weixiaolu.iteye.com/blog/1401931
+Scala 课堂!
+https://twitter.github.io/scala_school/zh_cn/index.html
+IK Analyzer动态添加分词
+http://my.oschina.net/qiangzigege/blog/276932
+Scala-IDE构建Maven项目
+http://m.blog.csdn.net/article/details?id=50991635
+Spark 源码和应用开发环境的构建
+http://www.ibm.com/developerworks/cn/opensource/os-cn-spark-build/index.html
+Maven生成可以直接运行的jar包的多种方式
+http://blog.csdn.net/xiao__gui/article/details/47341385
+Growth: 全栈增长工程师指南
+http://growth.phodal.com/#growth-%E5%85%A8%E6%A0%88%E5%A2%9E%E9%95%BF%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8C%87%E5%8D%97

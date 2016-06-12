@@ -1,0 +1,81 @@
+Nginx的安装
+模块依赖性Nginx需要依赖下面3个包
+1. gzip 模块需要 zlib 库 ( 下载: http://www.zlib.net/ )
+2. rewrite 模块需要 pcre 库 ( 下载: http://www.pcre.org/ )
+3. ssl 功能需要 openssl 库 ( 下载: http://www.openssl.org/ )
+ 
+Nginx包下载: http://nginx.org/en/download.html
+ 
+依赖包安装顺序依次为:openssl、zlib、pcre, 然后安装Nginx包.
+ 
+图解教程
+第一步： 下载安装所需包
+openssl-0.9.8zh.tar.gz
+
+zlib-1.2.7.tar.gz
+
+pcre-8.21.tar.gz
+
+nginx-1.2.6.tar.gz
+
+第二步:依次安装openssl-0.9.8zh.tar.gz, zlib-1.2.7.tar.gz, pcre-8.21.tar.gz, nginx-1.2.6.tar.gz
+
+1.安装openssl-fips-2.0.2.tar.gz
+
+[root@localhost mrms]# tar -zxvf openssl-0.9.8zh.tar.gz 
+
+[root@localhost mrms]# cd openssl-0.9.8zh
+
+[root@localhost openssl-fips-2.0.2]# ./config 
+
+[root@localhost openssl-fips-2.0.2]# make
+
+[root@localhost openssl-fips-2.0.2]# make install
+2.安装zlib-1.2.7.tar.gz
+
+[root@localhost mrms]# tar -zxvf zlib-1.2.7.tar.gz
+
+[root@localhost mrms]# cd zlib-1.2.7
+
+[root@localhost zlib-1.2.7]# ./configure 
+
+[root@localhost zlib-1.2.7]# make
+
+[root@localhost zlib-1.2.7]# make install
+3.安装pcre-8.21.tar.gz
+
+[root@localhost mrms]# tar -zxvf pcre-8.21.tar.gz
+
+[root@localhost mrms]# cd pcre-8.21
+
+[root@localhost pcre-8.21]# ./configure 
+
+[root@localhost pcre-8.21]# make
+
+[root@localhost pcre-8.21]# make install
+ 4.安装 nginx-1.2.6.tar.gz
+
+[root@localhost mrms]# tar -zxvf nginx-1.2.6.tar.gz 
+
+[root@localhost mrms]# cd nginx-1.2.6
+
+[root@localhost nginx-1.2.6]# ./configure --with-pcre=../pcre-8.38 --with-zlib=../zlib-1.2.8 --with-openssl=../openssl-0.9.8zh --with-http_ssl_module
+
+[root@localhost nginx-1.2.6]# make
+
+[root@localhost nginx-1.2.6]# make install
+至此Nginx的安装完成!
+
+第三步:检测是否安装成功
+
+[root@localhost nginx-1.2.6]# cd  /usr/local/nginx/sbin
+
+[root@localhost sbin]# ./nginx -t
+出现如下所示提示,表示安装成功
+
+ 
+
+启动nginx
+[root@localhost sbin]# ./nginx
+查看端口
+[root@localhost sbin]# netstat -ntlp

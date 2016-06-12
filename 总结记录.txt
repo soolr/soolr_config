@@ -1,0 +1,98 @@
+MEAVEN仓库 Sonatype Nexus
+http://soolr.com:8081/nexus/#welcome
+------------------------------------------------
+jre配置 -Dspring.profiles.active=test -XX:PermSize=512M -XX:MaxPermSize=512m
+------------------------------------------------
+链接redis
+redis-cli.exe -h 127.0.0.1 -p 6789
+
+account:info:account_id sexual
+hget account:info:862976 sexual
+hgetall account:info:862976
+-----------------------------------------------
+solr
+http://localhost:8080/tq-search/solr_config/select?q=account_name:%E4%BA%8C%E7%88%B7&hl=true&hl.fl=account_name&wt=json&indent=false
+http://localhost:8080/tq-search/solr_config/spell?q=account_name:%E4%BA%8C%E7%88%B7
+http://localhost:8080/tq-search/solr_config/suggest?q=%E4%BA%8C
+http://localhost:8080/tq-search/solr_config/suggest?q=No&wt=json&indent=true&spellcheck.build=true
+http://10.10.60.208:8080/tq-search/forum/talk_suggest?q=测试&wt=json&indent=true
+http://10.10.60.208:8080/tq-search/forum/content_suggest?q=测试&wt=json&indent=true
+http://10.10.60.208:8080/tq-search/forum/review_suggest?q=测试&wt=json&indent=true
+----------------------------------------------
+https://github.com/justinsb/jetcd
+https://github.com/coreos/etcd
+10.10.60.211  10.10.60.210 10.10.60.99 
+2380
+2379
+etcd监听watch采用长轮询
+创建目录curl http://10.10.60.211:2379/v2/keys/search/solr -XPUT -d dir=true
+删除目录curl 'http://10.10.60.211:2379/v2/keys/search?dir=true&recursive=true' -XDELETE
+创建键值curl http://127.0.0.1:2379/v2/keys/search/solr/001 -XPUT -d value="Hello etcd"
+删除键值curl http://127.0.0.1:2379/v2/keys/search/solr/001 -XDELETE
+https://github.com/justinsb/jetcd.git
+http://www.infoq.com/cn/articles/etcd-interpretation-application-scenario-implement-principle
+----------------------------------------------
+<Context docBase="E:/apache-tomcat-7.0.40/webapps/tq-search" debug="0" crossContext="true" >
+   <Environment name="solr/home" type="java.lang.String" value="E:/apache-tomcat-7.0.40/webapps/tq-search/WEB-INF/solr_home" override="true" />
+</Context>
+----------------------------------------------
+flume调试启动
+./flume-ng agent -c /usr/local/apache-flume-1.6.0-bin/conf/ -f /usr/local/apache-flume-1.6.0-bin/conf/flume-conf.properties -Dflume.root.logger=DEBUG,console -n agent1
+kafka启动 &是为了能退出命令行 
+
+启动Zookeeper server：
+./zookeeper-server-start.sh /usr/local/kafka_2.11-0.9.0.0/config/zookeeper.properties &
+
+启动Kafka server:
+./kafka-server-start.sh /usr/local/kafka_2.11-0.9.0.0/config/server.properties &
+
+创建 topic
+创建一个叫做“test”的topic，它只有一个分区，一个副本。
+./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+可以通过list命令查看创建的topic:
+./kafka-topics.sh --list --zookeeper localhost:2181
+
+发送消息.
+Kafka 使用一个简单的命令行producer，从文件中或者从标准输入中读取消息并发送到服务端。默认的每条命令将发送一条消息。
+运行producer并在控制台中输一些消息，这些消息将被发送到服务端：
+./kafka-console-producer.sh --broker-list localhost:9092 --topic test 
+ctrl+c可以退出发送
+
+启动consumer
+Kafka也有一个命令行consumer可以读取消息并输出到标准输出
+./kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+----------------------------------------------
+查看一下namenode的端口监听情况
+netstat -an | grep 9000
+shutdown -r now 立刻重启(root用户使用)
+shutdown -h now 立刻关机(root用户使用)
+
+[hadoop@Master local]$ hadoop fs -mkdir /test
+[hadoop@Master /]$ hadoop fs -chmod 777 /test
+----------------------------------------------
+安装maven插件，用于在eclipse中直接创建maven项目
+添加远程的原型或模板目录：http://repo1.maven.org/maven2/archetype-catalog.xml
+----------------------------------------------
+eclipse scala ide插件
+http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site
+eclipse maven scala ide插件
+http://alchim31.free.fr/m2e-scala/update-site
+----------------------------------------------
+spark
+spark-submit --class soolr.com.scalaDemo.App lib/scalaDemo.jar
+----------------------------------------------
+$.ajax({
+        type: "post",
+        url: "/tq-search/demo/?service=search&method=select",
+        data: {text:"foovalue"}, 
+        dataType: "json",
+        success: function (msg) {
+        	var val = msg;
+           alert(msg.text);
+        },
+        error: function (err) {
+            alert(err.responseText);
+        }
+    });
+----------------------------------------------
