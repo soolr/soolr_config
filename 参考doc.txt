@@ -1,3 +1,9 @@
+史上最全最强SpringMVC详细示例实战教程
+http://www.admin10000.com/document/6436.html
+solrj查询
+http://blog.techbeta.me/2015/11/solr-solrj-query/
+使用Solrj进行Solr查询
+http://www.czh123.com/blogitem553.html
 Linux下安装Nginx详细图解教程
 http://blog.csdn.net/dyllove98/article/details/8892509
 Linux 安装配置maven3.0 以及搭建nexus私服
@@ -30,3 +36,5 @@ Growth: 全栈增长工程师指南
 http://growth.phodal.com/#growth-%E5%85%A8%E6%A0%88%E5%A2%9E%E9%95%BF%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8C%87%E5%8D%97
 solr集群Replication配置与实践
 http://blog.csdn.net/shirdrn/article/details/7055355
+NoSQL 简介
+http://www.runoob.com/mongodb/nosql.html
