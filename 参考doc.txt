@@ -36,5 +36,15 @@ Growth: 全栈增长工程师指南
 http://growth.phodal.com/#growth-%E5%85%A8%E6%A0%88%E5%A2%9E%E9%95%BF%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8C%87%E5%8D%97
 solr集群Replication配置与实践
 http://blog.csdn.net/shirdrn/article/details/7055355
+SolrCloud 4.3.1+Tomcat 7安装配置实践
+http://blog.csdn.net/shirdrn/article/details/9718387
 NoSQL 简介
 http://www.runoob.com/mongodb/nosql.html
+kafka入门：简介、使用场景、设计原理、主要配置及集群搭建（转）
+http://www.cnblogs.com/likehua/p/3999538.html
+用Solr构建垂直搜索引擎
+https://paynexu.gitbooks.io/create-your-vertical-search-engine-with-solr/content/
+SolrCloud之分布式索引及与Zookeeper的集成
+http://josh-persistence.iteye.com/blog/2234411
+Solr部署详解
+http://violetgo.iteye.com/blog/2239002
