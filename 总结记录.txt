@@ -1,21 +1,21 @@
 AWS
 54.200.168.74 8082
-°¢ÀïÔÆ
+é˜¿é‡Œäº‘
 112.74.102.20
 ------------------------------------------------
-ÏßÉÏËÑË÷ÏµÍ³
+çº¿ä¸Šæœç´¢ç³»ç»Ÿ
 http://jnewsearch.soa.internal.taqu.cn/tq-search/#/
 ------------------------------------------------
-markdownÎÄµµ·şÎñÆ÷
-»ùÓÚDAUX.IOÏîÄ¿ÎÄµµÉú³ÉÆ÷
+markdownæ–‡æ¡£æœåŠ¡å™¨
+åŸºäºDAUX.IOé¡¹ç›®æ–‡æ¡£ç”Ÿæˆå™¨
 http://10.10.50.205:3234/Readme
 ------------------------------------------------
-MEAVEN²Ö¿â Sonatype Nexus
-http://soolr.com:8081/nexus/#welcome
+MEAVENä»“åº“ Sonatype Nexus
+http://soolr.com:8001/nexus/#welcome
 ------------------------------------------------
-jreÅäÖÃ -Dspring.profiles.active=test -XX:PermSize=512M -XX:MaxPermSize=512m
+jreé…ç½® -Dspring.profiles.active=test -XX:PermSize=512M -XX:MaxPermSize=512m
 ------------------------------------------------
-Á´½Óredis
+é“¾æ¥redis
 redis-cli.exe -h 127.0.0.1 -p 6789
 
 account:info:account_id sexual
@@ -27,20 +27,20 @@ http://localhost:8080/tq-search/solr_config/select?q=account_name:%E4%BA%8C%E7%8
 http://localhost:8080/tq-search/solr_config/spell?q=account_name:%E4%BA%8C%E7%88%B7
 http://localhost:8080/tq-search/solr_config/suggest?q=%E4%BA%8C
 http://localhost:8080/tq-search/solr_config/suggest?q=No&wt=json&indent=true&spellcheck.build=true
-http://10.10.60.208:8080/tq-search/forum/talk_suggest?q=²âÊÔ&wt=json&indent=true
-http://10.10.60.208:8080/tq-search/forum/content_suggest?q=²âÊÔ&wt=json&indent=true
-http://10.10.60.208:8080/tq-search/forum/review_suggest?q=²âÊÔ&wt=json&indent=true
+http://10.10.60.208:8080/tq-search/forum/talk_suggest?q=æµ‹è¯•&wt=json&indent=true
+http://10.10.60.208:8080/tq-search/forum/content_suggest?q=æµ‹è¯•&wt=json&indent=true
+http://10.10.60.208:8080/tq-search/forum/review_suggest?q=æµ‹è¯•&wt=json&indent=true
 ----------------------------------------------
 https://github.com/justinsb/jetcd
 https://github.com/coreos/etcd
 10.10.60.211  10.10.60.210 10.10.60.99 
 2380
 2379
-etcd¼àÌıwatch²ÉÓÃ³¤ÂÖÑ¯
-´´½¨Ä¿Â¼curl http://10.10.60.211:2379/v2/keys/search/solr -XPUT -d dir=true
-É¾³ıÄ¿Â¼curl 'http://10.10.60.211:2379/v2/keys/search?dir=true&recursive=true' -XDELETE
-´´½¨¼üÖµcurl http://127.0.0.1:2379/v2/keys/search/solr/001 -XPUT -d value="Hello etcd"
-É¾³ı¼üÖµcurl http://127.0.0.1:2379/v2/keys/search/solr/001 -XDELETE
+etcdç›‘å¬watché‡‡ç”¨é•¿è½®è¯¢
+åˆ›å»ºç›®å½•curl http://10.10.60.211:2379/v2/keys/search/solr -XPUT -d dir=true
+åˆ é™¤ç›®å½•curl 'http://10.10.60.211:2379/v2/keys/search?dir=true&recursive=true' -XDELETE
+åˆ›å»ºé”®å€¼curl http://127.0.0.1:2379/v2/keys/search/solr/001 -XPUT -d value="Hello etcd"
+åˆ é™¤é”®å€¼curl http://127.0.0.1:2379/v2/keys/search/solr/001 -XDELETE
 https://github.com/justinsb/jetcd.git
 http://www.infoq.com/cn/articles/etcd-interpretation-application-scenario-implement-principle
 ----------------------------------------------
@@ -48,47 +48,47 @@ http://www.infoq.com/cn/articles/etcd-interpretation-application-scenario-implem
    <Environment name="solr/home" type="java.lang.String" value="E:/apache-tomcat-7.0.40/webapps/tq-search/WEB-INF/solr_home" override="true" />
 </Context>
 ----------------------------------------------
-flumeµ÷ÊÔÆô¶¯
+flumeè°ƒè¯•å¯åŠ¨
 ./flume-ng agent -c /usr/local/apache-flume-1.6.0-bin/conf/ -f /usr/local/apache-flume-1.6.0-bin/conf/flume-conf.properties -Dflume.root.logger=DEBUG,console -n agent1
-kafkaÆô¶¯ &ÊÇÎªÁËÄÜÍË³öÃüÁîĞĞ 
+kafkaå¯åŠ¨ &æ˜¯ä¸ºäº†èƒ½é€€å‡ºå‘½ä»¤è¡Œ 
 
-Æô¶¯Zookeeper server£º
+å¯åŠ¨Zookeeper serverï¼š
 ./zookeeper-server-start.sh /usr/local/kafka_2.11-0.9.0.0/config/zookeeper.properties &
 
-Æô¶¯Kafka server:
+å¯åŠ¨Kafka server:
 ./kafka-server-start.sh /usr/local/kafka_2.11-0.9.0.0/config/server.properties &
 
-´´½¨ topic
-´´½¨Ò»¸ö½Ğ×ö¡°test¡±µÄtopic£¬ËüÖ»ÓĞÒ»¸ö·ÖÇø£¬Ò»¸ö¸±±¾¡£
+åˆ›å»º topic
+åˆ›å»ºä¸€ä¸ªå«åšâ€œtestâ€çš„topicï¼Œå®ƒåªæœ‰ä¸€ä¸ªåˆ†åŒºï¼Œä¸€ä¸ªå‰¯æœ¬ã€‚
 ./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
-¿ÉÒÔÍ¨¹ılistÃüÁî²é¿´´´½¨µÄtopic:
+å¯ä»¥é€šè¿‡listå‘½ä»¤æŸ¥çœ‹åˆ›å»ºçš„topic:
 ./kafka-topics.sh --list --zookeeper localhost:2181
 
-·¢ËÍÏûÏ¢.
-Kafka Ê¹ÓÃÒ»¸ö¼òµ¥µÄÃüÁîĞĞproducer£¬´ÓÎÄ¼şÖĞ»òÕß´Ó±ê×¼ÊäÈëÖĞ¶ÁÈ¡ÏûÏ¢²¢·¢ËÍµ½·şÎñ¶Ë¡£Ä¬ÈÏµÄÃ¿ÌõÃüÁî½«·¢ËÍÒ»ÌõÏûÏ¢¡£
-ÔËĞĞproducer²¢ÔÚ¿ØÖÆÌ¨ÖĞÊäÒ»Ğ©ÏûÏ¢£¬ÕâĞ©ÏûÏ¢½«±»·¢ËÍµ½·şÎñ¶Ë£º
+å‘é€æ¶ˆæ¯.
+Kafka ä½¿ç”¨ä¸€ä¸ªç®€å•çš„å‘½ä»¤è¡Œproducerï¼Œä»æ–‡ä»¶ä¸­æˆ–è€…ä»æ ‡å‡†è¾“å…¥ä¸­è¯»å–æ¶ˆæ¯å¹¶å‘é€åˆ°æœåŠ¡ç«¯ã€‚é»˜è®¤çš„æ¯æ¡å‘½ä»¤å°†å‘é€ä¸€æ¡æ¶ˆæ¯ã€‚
+è¿è¡Œproducerå¹¶åœ¨æ§åˆ¶å°ä¸­è¾“ä¸€äº›æ¶ˆæ¯ï¼Œè¿™äº›æ¶ˆæ¯å°†è¢«å‘é€åˆ°æœåŠ¡ç«¯ï¼š
 ./kafka-console-producer.sh --broker-list localhost:9092 --topic test 
-ctrl+c¿ÉÒÔÍË³ö·¢ËÍ
+ctrl+cå¯ä»¥é€€å‡ºå‘é€
 
-Æô¶¯consumer
-KafkaÒ²ÓĞÒ»¸öÃüÁîĞĞconsumer¿ÉÒÔ¶ÁÈ¡ÏûÏ¢²¢Êä³öµ½±ê×¼Êä³ö
+å¯åŠ¨consumer
+Kafkaä¹Ÿæœ‰ä¸€ä¸ªå‘½ä»¤è¡Œconsumerå¯ä»¥è¯»å–æ¶ˆæ¯å¹¶è¾“å‡ºåˆ°æ ‡å‡†è¾“å‡º
 ./kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ----------------------------------------------
-²é¿´Ò»ÏÂnamenodeµÄ¶Ë¿Ú¼àÌıÇé¿ö
+æŸ¥çœ‹ä¸€ä¸‹namenodeçš„ç«¯å£ç›‘å¬æƒ…å†µ
 netstat -an | grep 9000
-shutdown -r now Á¢¿ÌÖØÆô(rootÓÃ»§Ê¹ÓÃ)
-shutdown -h now Á¢¿Ì¹Ø»ú(rootÓÃ»§Ê¹ÓÃ)
+shutdown -r now ç«‹åˆ»é‡å¯(rootç”¨æˆ·ä½¿ç”¨)
+shutdown -h now ç«‹åˆ»å…³æœº(rootç”¨æˆ·ä½¿ç”¨)
 
 [hadoop@Master local]$ hadoop fs -mkdir /test
 [hadoop@Master /]$ hadoop fs -chmod 777 /test
 ----------------------------------------------
-°²×°maven²å¼ş£¬ÓÃÓÚÔÚeclipseÖĞÖ±½Ó´´½¨mavenÏîÄ¿
-Ìí¼ÓÔ¶³ÌµÄÔ­ĞÍ»òÄ£°åÄ¿Â¼£ºhttp://repo1.maven.org/maven2/archetype-catalog.xml
+å®‰è£…mavenæ’ä»¶ï¼Œç”¨äºåœ¨eclipseä¸­ç›´æ¥åˆ›å»ºmavené¡¹ç›®
+æ·»åŠ è¿œç¨‹çš„åŸå‹æˆ–æ¨¡æ¿ç›®å½•ï¼šhttp://repo1.maven.org/maven2/archetype-catalog.xml
 ----------------------------------------------
-eclipse scala ide²å¼ş
+eclipse scala ideæ’ä»¶
 http://download.scala-ide.org/sdk/lithium/e44/scala211/stable/site
-eclipse maven scala ide²å¼ş
+eclipse maven scala ideæ’ä»¶
 http://alchim31.free.fr/m2e-scala/update-site
 ----------------------------------------------
 spark
