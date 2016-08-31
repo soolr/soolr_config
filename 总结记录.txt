@@ -15,6 +15,9 @@ http://soolr.com:8001/nexus/#welcome
 ------------------------------------------------
 jre配置 -Dspring.profiles.active=test -XX:PermSize=512M -XX:MaxPermSize=512m
 ------------------------------------------------
+后台启动命令
+nohup sh /var/lib/etcd/etcd.sh &
+------------------------------------------------
 链接redis
 redis-cli.exe -h 127.0.0.1 -p 6789
 
