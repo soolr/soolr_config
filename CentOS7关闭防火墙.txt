@@ -1,0 +1,27 @@
+在搭建Ambari中发现Ambari服务无法使用，觉得是防火墙的原因。记录下
+
+Centos7中防火墙变为了firewall
+
+1 查看防火墙状态
+
+[root@centos01 ~]# firewall-cmd --state
+
+running
+
+2 果然是运行的，于是就想disabled防火墙服务
+
+—-[root@centos01 ~]# systemctl mask firewalld
+
+—-ln -s '/dev/null' '/etc/systemd/system/firewalld.service'
+
+3 然后关闭防火墙
+
+[root@centos01 ~]# systemctl stop firewalld
+
+4 最后检查防火墙服务，发现已经关闭了
+
+[root@centos01 ~]# firewall-cmd --state
+
+not running
+
+然后Ambari服务就正常工作了

@@ -1,0 +1,11 @@
+解压jdk，解压命令:tar -xvzf jdk-7u79-linux-x64.tar.gz
+编辑~/.bashrc文件，vi ~/.bashrc
+
+vi /etc/profile
+
+export JAVA_HOME=/usr/local/jdk1.7.0_79
+export JRE_HOME=/usr/local/jdk1.7.0_79/jre
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin: $PATH
+
+source /etc/profile
