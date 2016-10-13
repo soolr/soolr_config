@@ -1,0 +1,10 @@
+安装vsftpd
+1、以管理员（root）身份执行以下命令
+yum install vsftpd
+2、设置开机启动vsftpd ftp服务
+chkconfig vsftpd on
+3、启动vsftpd服务
+service vsftpd start
+管理vsftpd相关命令
+停止vsftpd: service vsftpd stop
+重启vsftpd: service vsftpd restart
