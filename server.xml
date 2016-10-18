@@ -121,25 +121,20 @@
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
       </Realm>
-
+      <!-- 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="false" autoDeploy="false"
             xmlValidation="false" xmlNamespaceAware="false">
-
-        <!-- SingleSignOn valve, share authentication between web applications
-             Documentation at: /docs/config/valve.html -->
-        <!--
-        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
-        -->
-
-        <!-- Access log processes all example.
-             Documentation at: /docs/config/valve.html
-             Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-				<Context path="" docBase="/var/www/soolr.com/soolr" reloadable="true"/>
+				<Context path="" docBase="/var/www/soolr.com" reloadable="true"/>
       </Host>
+      -->
+      <Host name="soolr.com" appBase="webapps" unpackWARs="true" autoDeploy="true" >  
+      	<Context path="" docBase="/var/www/soolr.com" reloadable="true"/>
+	    <Context path="/solr" docBase="/var/www/soolr.com/solr" reloadable="true" />  
+	</Host>
     </Engine>
   </Service>
 </Server>
