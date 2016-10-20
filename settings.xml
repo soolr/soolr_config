@@ -158,7 +158,7 @@ under the License.
       <id>nexus</id>
       <mirrorOf>*</mirrorOf>
       <name>Human Readable Name for this Mirror.</name>
-      <url>http://soolr.com:8081/nexus/content/groups/public</url>
+      <url>https://soolr.com/nexus/content/groups/public/</url>
     </mirror>
      
   </mirrors>
@@ -255,7 +255,7 @@ under the License.
 	    <repository>
 	      <id>nexus</id>
 	      <name>Nexus</name>
-	      <url>http://soolr.com:8081/nexus/content/groups/public/</url>
+	      <url>https://soolr.com/nexus/content/groups/public/</url>
 	      <releases><enabled>true</enabled></releases>
 	      <snapshots><enabled>true</enabled></snapshots>
 	    </repository>	
@@ -264,7 +264,7 @@ under the License.
       	<pluginRepository>
       	  <id>nexus</id>
       	  <name>Nexus</name>
-      	  <url>http://soolr.com:8081/nexus/content/groups/public/</url>
+      	  <url>https://soolr.com/nexus/content/groups/public/</url>
       	  <releases><enabled>true</enabled></releases>
       	  <snapshots><enabled>true</enabled></snapshots>
       	</pluginRepository>
