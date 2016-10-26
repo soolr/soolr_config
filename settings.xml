@@ -96,14 +96,14 @@ under the License.
      | Specification for one proxy, to be used in connecting to the network.
      |
     <proxy>
-      <id>optional</id>
+      <id>nexus</id>
       <active>true</active>
-      <protocol>http</protocol>
-      <username>proxyuser</username>
-      <password>proxypass</password>
-      <host>proxy.host.net</host>
+      <protocol>https</protocol>
+      <username>admin</username>
+      <password>admin123</password>
+      <host>soolr.com</host>
       <port>80</port>
-      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+      <nonProxyHosts>soolr.com|www.soolr.com</nonProxyHosts>
     </proxy>
     -->
   </proxies>
@@ -158,7 +158,7 @@ under the License.
       <id>nexus</id>
       <mirrorOf>*</mirrorOf>
       <name>Human Readable Name for this Mirror.</name>
-      <url>https://soolr.com/nexus/content/groups/public/</url>
+      <url>http://soolr.com:8081/nexus/content/groups/public/</url>
     </mirror>
      
   </mirrors>
@@ -250,27 +250,26 @@ under the License.
     </profile>
     -->
     <profile>
-      <id>nexus</id>
+      <id>nexusProfile</id>
       <repositories>
 	    <repository>
 	      <id>nexus</id>
 	      <name>Nexus</name>
-	      <url>https://soolr.com/nexus/content/groups/public/</url>
+	      <url>http://soolr.com:8081/nexus/content/groups/public/</url>
 	      <releases><enabled>true</enabled></releases>
 	      <snapshots><enabled>true</enabled></snapshots>
+	      <layout>default</layout>
 	    </repository>	
       </repositories>
-      <pluginRepositories>      
-      	<pluginRepository>
-      	  <id>nexus</id>
-      	  <name>Nexus</name>
-      	  <url>https://soolr.com/nexus/content/groups/public/</url>
-      	  <releases><enabled>true</enabled></releases>
-      	  <snapshots><enabled>true</enabled></snapshots>
-      	</pluginRepository>
-      </pluginRepositories>
+
     </profile>
+    
   </profiles>
+  
+  <activeProfiles>  
+        <!--激活了才生效-->  
+        <activeProfile>nexusProfile</activeProfile>  
+  </activeProfiles>  
 
   <!-- activeProfiles
    | List of profiles that are active for all builds.

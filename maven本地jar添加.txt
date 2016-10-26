@@ -1,0 +1,5 @@
+mvn install:install-file -DgroupId=com.jolbox -DartifactId=bonecp -Dversion=0.6.6 -Dpackaging=jar -Dfile=/Users/miss/you-get/bonecp-0.6.6.jar
+
+mvn install:install-file -DgroupId=com.jolbox -DartifactId=bonecp-spring -Dversion=0.6.6 -Dpackaging=jar -Dfile=/Users/miss/you-get/bonecp-spring-0.6.6.jar
+
+mvn install:install-file -DgroupId=commons-lang -DartifactId=commons-lang -Dversion=2.6 -Dpackaging=jar -Dfile=/Users/miss/you-get/commons-lang-2.6.jar
