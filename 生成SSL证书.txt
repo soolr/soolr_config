@@ -1,0 +1,19 @@
+生成服务器证书库
+keytool -validity 36500 -genkey -v -alias server -keyalg RSA -keystore server.keystore -dname "CN=soolr.com,OU=soolr.com,O=cas,L=XiAn,ST=ShanXi,c=ZH" -storepass delicious -keypass delicious
+
+从服务器证书库中导出服务器证书
+keytool -export -v -alias server -keystore server.keystore -storepass delicious -rfc -file server.cer
+
+创建证书
+keytool -genkey -alias soolr -keyalg RSA -keystore /Users/miss/Documents/soolr.com/KEY/soolr.keystore
+导出证书
+keytool -export -file /Users/miss/Documents/soolr.com/KEY/soolr.crt -alias soolr -keystore /Users/miss/Documents/soolr.com/KEY/soolr.keystore 
+客户端的JVM导入证书
+keytool -import -alias kk -keystore "D:\Program  Files\Java\jdk1.8.0_45\jre\lib\security\cacerts" -file D:/keys/wsria.crt
+
+<Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" 
+           maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+           clientAuth="false" sslProtocol="TLS"
+           keystoreType="JKS"
+           keystoreFile="/var/www/soolr.com/soolr.keystore"
+           keystorePass="delicious" />

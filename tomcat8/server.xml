@@ -26,8 +26,6 @@
   -->
   <!--APR library loader. Documentation at /docs/apr.html -->
   <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
-  <!--Initialize Jasper prior to webapps are loaded. Documentation at /docs/jasper-howto.html -->
-  <Listener className="org.apache.catalina.core.JasperListener" />
   <!-- Prevent memory leaks due to use of particular java/javax APIs-->
   <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
@@ -66,9 +64,9 @@
          Java HTTP Connector: /docs/config/http.html (blocking & non-blocking)
          Java AJP  Connector: /docs/config/ajp.html
          APR (HTTP/AJP) Connector: /docs/apr.html
-         Define a non-SSL HTTP/1.1 Connector on port 8080
+         Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector port="8080" protocol="HTTP/1.1"
+    <Connector port="8088" protocol="HTTP/1.1"
                connectionTimeout="20000"
                redirectPort="8443" />
     <!-- A "Connector" using the shared thread pool-->
@@ -78,19 +76,26 @@
                connectionTimeout="20000"
                redirectPort="8443" />
     -->
-    <!-- Define a SSL HTTP/1.1 Connector on port 8443
-         This connector uses the BIO implementation that requires the JSSE
+    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443
+         This connector uses the NIO implementation that requires the JSSE
          style configuration. When using the APR/native implementation, the
          OpenSSL style configuration is required as described in the APR/native
          documentation -->
     <!--
-    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol"
+    <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
-               clientAuth="false" sslProtocol="TLS" />
-    -->
-
+               clientAuth="false" sslProtocol="TLS" keystoreFile="/var/www/soolr.com"
+           keystorePass="delicious"/>
+    -->     
+           
+    <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" 
+           maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+           clientAuth="false" sslProtocol="TLS"
+           keystoreType="JKS"
+           keystoreFile="/var/www/soolr.com/soolr.keystore"
+           keystorePass="delicious" />       
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+    <Connector port="8089" protocol="AJP/1.3" redirectPort="8443" />
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes
@@ -121,25 +126,32 @@
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
       </Realm>
-      
+
+      <!-- <Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+
+        SingleSignOn valve, share authentication between web applications
+             Documentation at: /docs/config/valve.html -->
+        <!--
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+        -->
+
+        <!-- Access log processes all example.
+             Documentation at: /docs/config/valve.html
+             Note: The pattern used is equivalent to using pattern="common" 
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
+      </Host>-->
       <Host name="localhost"  appBase="webapps"
             unpackWARs="false" autoDeploy="false"
             xmlValidation="false" xmlNamespaceAware="false">
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-				<Context path="" docBase="/var/www/soolr.com" reloadable="true"/>
-				<Context path="/solr" docBase="/var/www/soolr.com/solr" reloadable="true"/>  
+				<Context path="/cas" docBase="/var/www/soolr.com/cas" reloadable="true"/>  
       </Host>
-      
-      <!-- <Host name="soolr.com" appBase="webapps" unpackWARs="true" autoDeploy="true" >  
-      	<Context path="/" docBase="/var/www/soolr.com" reloadable="true"/>
-	    <Context path="/solr" docBase="/var/www/soolr.com/solr" reloadable="true" />  
-	  </Host >
-	  <Host name="www.soolr.com" appBase="webapps" unpackWARs="true" autoDeploy="true" >  
-      	<Context path="/" docBase="/var/www/soolr.com" reloadable="true"/>
-	    <Context path="/solr" docBase="/var/www/soolr.com/solr" reloadable="true" />  
-	  </Host > -->
     </Engine>
   </Service>
 </Server>
