@@ -9,7 +9,7 @@ keytool -genkey -alias soolr -keyalg RSA -keystore /Users/miss/Documents/soolr.c
 导出证书
 keytool -export -file /Users/miss/Documents/soolr.com/KEY/soolr.crt -alias soolr -keystore /Users/miss/Documents/soolr.com/KEY/soolr.keystore 
 客户端的JVM导入证书
-keytool -import -alias kk -keystore "D:\Program  Files\Java\jdk1.8.0_45\jre\lib\security\cacerts" -file D:/keys/wsria.crt
+keytool -import -alias kk -keystore "/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre/lib/security/cacerts" -file /Users/miss/Documents/soolr.com/KEY/servertest.crt
 
 <Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" 
            maxThreads="150" SSLEnabled="true" scheme="https" secure="true"

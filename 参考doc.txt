@@ -48,3 +48,7 @@ SolrCloud之分布式索引及与Zookeeper的集成
 http://josh-persistence.iteye.com/blog/2234411
 Solr部署详解
 http://violetgo.iteye.com/blog/2239002
+CAS-Client客户端研究(一)-AuthenticationFilter
+http://blog.csdn.net/yuwenruli/article/details/6600032
+CAS-Client客户端研究(二)-Cas20ProxyReceivingTicketValidationFilter
+http://blog.csdn.net/yuwenruli/article/details/6602322
