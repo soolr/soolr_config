@@ -1,0 +1,63 @@
+0x00 前言
+squid是一款高性能的代理缓存服务器，常用来部署HTTP(S)代理服务器。本文是在Ubuntu上使用squid部署HTTP(S)代理服务器的方法总结。
+
+使用的Ubuntu版本是：Ubuntu 16.04 x64。
+
+0x01 安装和配置
+使用如下命令安装squid：
+
+apt install squid -y
+安装后，会在/etc/squid目录下生成默认的配置文件squid.conf,需要对其做一些自定义的修改.
+
+修改默认端口
+http_port 0.0.0.0:3128
+将http_port 3128这行中的3128修改为期望的端口号，比如8080，或是非常用端口，这样可以避免服务被shodan之类的搜索引擎探测到。
+
+允许外部访问
+squid默认只能从本地访问，是因为它设置了http_access allow localhost。
+
+但正常情况下，我们都是需要从外部访问的，这就需要添加以下两行配置：
+
+acl net src 0.0.0.0/0
+http_access allow net
+表示接收任意外部地址。
+
+允许CONNECT所有端口
+squid默认只可以CONNECT443端口，如果要开放所有端口，需要注释掉http_access deny CONNECT !SSL_ports这行。
+
+修改安全端口
+squid默认策略只允许代理访问以下端口：
+
+acl Safe_ports port 80        # http
+acl Safe_ports port 21        # ftp
+acl Safe_ports port 443        # https
+acl Safe_ports port 70        # gopher
+acl Safe_ports port 210        # wais
+acl Safe_ports port 1025-65535    # unregistered ports
+acl Safe_ports port 280        # http-mgmt
+acl Safe_ports port 488        # gss-http
+acl Safe_ports port 591        # filemaker
+acl Safe_ports port 777        # multiling http
+因此，会有部分端口无法访问，直接返回403 Forbidden。如果需要访问这些端口，可以增加以下配置：
+
+acl Safe_ports port 1-1024
+不允许访问本地网络
+squid默认允许访问本地（localhost）服务，但建议去掉#http_access deny to_localhost的注释
+
+允许所有访问
+如果觉得以上操作过于繁琐，在不考虑安全性的情况下，也可以修改http_access deny all为http_access allow all
+
+设置访问密码
+为了安全，我们通常会给代理服务器设置密码。
+
+先安装htpasswd工具，使用如下命令：
+
+apt install apache2-utils -y
+创建密码文件：
+
+htpasswd -c /etc/squid/passwd proxy_username
+在squid.conf中添加以下内容：
+
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
+0x02 启动squid服务
+systemctl start squid
